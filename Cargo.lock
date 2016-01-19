@@ -3,6 +3,7 @@ name = "md2bb"
 version = "0.1.0"
 dependencies = [
  "csv 0.14.3 (registry+https://github.com/rust-lang/crates.io-index)",
+ "getopts 0.2.14 (registry+https://github.com/rust-lang/crates.io-index)",
  "regex 0.1.47 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
@@ -27,6 +28,11 @@ dependencies = [
  "byteorder 0.3.13 (registry+https://github.com/rust-lang/crates.io-index)",
  "rustc-serialize 0.3.16 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
+
+[[package]]
+name = "getopts"
+version = "0.2.14"
+source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
 name = "libc"
