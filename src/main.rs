@@ -20,7 +20,7 @@ fn main() {
 }
 
 fn print_usage(program: &str, opts: Options) {
-    let brief = format!("Usage: {} FILE [options]", program);
+    let brief = format!("Usage: {} [options] FILE\nProgram translates input Markdown FILE into output bb file following rules.\n Default rules can be overriden using explixit option.", program);
     print!("{}", opts.usage(&brief));
 }
 
