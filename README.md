@@ -26,9 +26,9 @@ cargo build --release
 
 ## Spoilers in Markdown
 
-There are no spoilers in MD, though, they can be useful when formatting your article in BB. The following showshow to use neat MD text and convert it to spoilers in BB.
+There are no spoilers in MD, though, they can be useful when formatting your article in BB. The following shows how to use neat MD text and convert it to spoilers in BB.
 ```
-#### Spolier name here
+#### Spoiler name here
 That's a spoiler text. It's not very big, but it has great ambitions.
 
 Just a casual text here.
