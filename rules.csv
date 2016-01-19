@@ -1,0 +1,9 @@
+regexp,replacement
+\*\*(?P<bold>.+?)\*\*,[b]$bold[/b]
+\*(?P<italic>.+?)\*,[i]$italic[/i]
+(?m)^# (?P<head>.*?)$\r?\n,
+(?m)^## (?P<head>.*?)$,[head]$head[/head]
+```(?P<ml_code>(?s).*?)```,[code rust]$ml_code[/code]\n
+(?m)^#### (?P<spoiler_name>.*?)$(?P<spoiler_content>(?s).+?)^\r?\n,[spoiler $spoiler_name]$spoiler_content[/spoiler]\n
+\[(?P<link_name>.*?)\]\((?P<link_href>.*?)\),[url=$link_href]$link_name[/url]
+`(?P<code>.*?)`,[bg=#bfbfbf]$code[/bg]

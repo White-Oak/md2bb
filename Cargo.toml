@@ -1,0 +1,7 @@
+[package]
+name = "md2bb"
+version = "0.1.0"
+authors = ["White-Oak <lpzhelud@gmail.com>"]
+[dependencies]
+regex = "0.1"
+csv = "0.14"
