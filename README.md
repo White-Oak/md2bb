@@ -10,6 +10,9 @@ At [releases](https://github.com/White-Oak/md2bb/releases) section
 md2bb
 ```
 ```
+curl 'https://raw.githubusercontent.com/White-Oak/md2bb/master/README.md' | md2bb | tee text.bb
+```
+```
 md2bb -o README.bb README.md
 ```
 ```
