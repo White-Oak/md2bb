@@ -2,7 +2,7 @@
 The tool translates Markdown files into BB code.
 
 ## Downloads
-At [downloads]() section
+At [releases](https://github.com/White-Oak/md2bb/releases) section
 
 ## Usage
 ```
