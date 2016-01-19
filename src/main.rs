@@ -21,7 +21,8 @@ fn main() {
 }
 
 fn print_usage(program: &str, opts: Options) {
-    let brief = format!("Usage: {} [options] FILE\nProgram translates input Markdown FILE into output bb file following rules.\n Default rules can be overriden using explixit option.", program);
+    let mut brief = format!("Usage: {} [options] FILE\n\tProgram translates input Markdown FILE into output bb file following rules.\n\tDefault rules can be overriden using explixit option.\n", program);
+    brief = brief + &format!("Usage: command | {} [options] | command\n\tThis allows you to pipe standart input and output.", program);
     print!("{}", opts.usage(&brief));
 }
 
@@ -31,7 +32,7 @@ fn get_args() -> (String, String, String){
 
     let mut opts = Options::new();
     opts.optopt("r", "rules", "set rules for translation", "FILE");
-    opts.optopt("o", "output", "set output file for translation; default -- text.bb", "FILE");
+    opts.optopt("o", "output", "set output file for translation; default -- stdout", "FILE");
     opts.optflag("h", "help", "print this help menu");
     let matches = match opts.parse(&args[1..]) {
         Ok(m) => { m }
@@ -52,21 +53,27 @@ fn get_args() -> (String, String, String){
         "rules.csv".into()
     };
 
-    let file = if !matches.free.is_empty() {
-        matches.free[0].clone()
+    let contents = if !matches.free.is_empty() {
+        let mut contents = String::new();
+        let mut f = File::open(&matches.free[0]).unwrap();
+        let _ = f.read_to_string(&mut contents);
+        contents
     } else {
-        "text.md".into()
+        //if no input was specified reading from stdin
+        use std::io;
+
+        let mut input = String::new();
+        while io::stdin().read_line(&mut input).unwrap() > 0 {}
+        input
     };
 
     let output = if matches.opt_present("o") {
         matches.opt_str("o").unwrap()
     } else {
-        "text.bb".into()
+        "".into()
     };
 
-    let mut contents = String::new();
-    let mut f = File::open(&file).unwrap();
-    let _ = f.read_to_string(&mut contents);
+
 
     (contents, output, rules)
 }
@@ -77,6 +84,11 @@ fn write_bb(path: &str, contents: String){
     use std::fs::File;
     use std::path::Path;
 
+    //If output was'nt specified writing to stdout
+    if path.len() == 0 {
+        println!("{}", contents);
+        return;
+    }
     let path = Path::new(path);
     let display = path.display();
 
