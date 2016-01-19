@@ -13,6 +13,7 @@ fn main() {
     use rules_parser::parse_rules;
     let (mut input, output, rules_file) = get_args();
     let rules = parse_rules(&rules_file);
+    println!("Rules loaded.");
     for (re, replace) in rules {
         input = re.replace_all(&input, &replace as &str);
     }
@@ -34,7 +35,11 @@ fn get_args() -> (String, String, String){
     opts.optflag("h", "help", "print this help menu");
     let matches = match opts.parse(&args[1..]) {
         Ok(m) => { m }
-        Err(f) => { panic!(f.to_string()) }
+        Err(f) => {
+            println!("{}", f.to_string());
+            print_usage(&program, opts);
+            panic!();
+        }
     };
     if matches.opt_present("h") {
         print_usage(&program, opts);
@@ -85,6 +90,6 @@ fn write_bb(path: &str, contents: String){
             panic!("couldn't write to {}: {}", display,
                                                Error::description(&why))
         },
-        Ok(_) => println!("successfully wrote to {}", display),
+        Ok(_) => println!("Successfully wrote to {}.", display),
     }
 }

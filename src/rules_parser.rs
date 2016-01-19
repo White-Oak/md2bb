@@ -15,7 +15,6 @@ fn decode<T: Read>(mut rdr: Reader<T>) -> Vec<(Regex, String)> {
     let mut vec = vec![];
     for record in rdr.decode() {
         let (s1, s2): (String, String) = record.unwrap();
-        println!("{} to {}", &s1, &s2);
         vec.push((Regex::new(&s1).unwrap(), s2));
     }
     vec.push((Regex::new(r"\\n").unwrap(), "\n".to_string()));
