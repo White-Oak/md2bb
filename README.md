@@ -1,6 +1,7 @@
 # MD2BB
 
 [![Build Status](https://travis-ci.org/White-Oak/md2bb.svg?branch=master)](https://travis-ci.org/White-Oak/md2bb)
+
 The tool translates Markdown files into BB code.
 
 ## Downloads

@@ -1,6 +1,6 @@
 [root]
 name = "md2bb"
-version = "1.0.0"
+version = "2.1.0"
 dependencies = [
  "csv 0.14.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "getopts 0.2.14 (registry+https://github.com/rust-lang/crates.io-index)",
