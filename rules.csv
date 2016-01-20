@@ -3,7 +3,7 @@ regexp,replacement
 \*\*(?P<bold>[^\*]+?)\*\*,[b]$bold[/b]
 \*(?P<italic>.+?)\*,[i]$italic[/i]
 (?m)^# (?P<head>.*?)$\r?\n,
-(?m)^## (?P<head>.*?)$,[b][center]$head[/b][/center]
+(?m)^#+ (?P<head>.*?)$,[b][center]$head[/b][/center]
 (?m)^```(?P<code_lang>.*?)$(?P<ml_code>(?s).*?)```,[code $code_lang]$ml_code[/code]\n
 (?m)^#### (?P<spoiler_name>.*?)$(?P<spoiler_content>(?s).+?)^\r?\n,[spoiler $spoiler_name]$spoiler_content[/spoiler]\n
 `(?P<code>.*?)`,[bg=#bfbfbf]$code[/bg]
