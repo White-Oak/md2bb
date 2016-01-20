@@ -1,6 +1,6 @@
 [package]
 name = "md2bb"
-version = "1.0.0"
+version = "2.1.0"
 authors = ["White-Oak <lpzhelud@gmail.com>"]
 
 [dependencies]
