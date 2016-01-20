@@ -8,3 +8,6 @@ regexp,replacement
 (?m)^```$\s*(?P<ml_code>(?s).*?)^```$,[code]$ml_code[/code]\n
 (?m)^#### (?P<spoiler_name>.*?)$(?P<spoiler_content>(?s).+?)^\r?\n,[spoiler $spoiler_name]$spoiler_content[/spoiler]\n
 `(?P<code>.*?)`,[bg=#bfbfbf]$code[/bg]
+(?m)^> ,__quotation__supersecret__
+(?m)(?P<quote>(?:^__quotation__supersecret__.*$\s*)+),[c]$quote[/c]\n
+__quotation__supersecret__,

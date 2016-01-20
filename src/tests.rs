@@ -29,3 +29,9 @@ fn md2bb_03_test(){
     let desired_output = include_str!("../tests/03_from_issue_1.bb");
     assert_eq!(translate(input, "".to_string()), desired_output);
 }
+#[test]
+fn md2bb_04_test(){
+    let input = include_str!("../tests/04_quotes.md").to_string();
+    let desired_output = include_str!("../tests/04_quotes.bb");
+    assert_eq!(translate(input, "".to_string()), desired_output);
+}
