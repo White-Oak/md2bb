@@ -8,16 +8,13 @@ use std::io::Read;
 use getopts::Options;
 
 pub mod rules_parser;
+pub mod md2bb;
+pub mod tests;
 
 fn main() {
-    use rules_parser::parse_rules;
-    let (mut input, output, rules_file) = get_args();
-    let rules = parse_rules(&rules_file);
-    println!("Rules loaded.");
-    for (re, replace) in rules {
-        input = re.replace_all(&input, &replace as &str);
-    }
-    write_bb(&output, input);
+    let (input, output_file, rules_file) = get_args();
+    let result = md2bb::translate(input, rules_file);
+    write_bb(&output_file, result);
 }
 
 fn print_usage(program: &str, opts: Options) {
@@ -78,12 +75,11 @@ fn get_args() -> (String, String, String){
     (contents, output, rules)
 }
 
+
 fn write_bb(path: &str, contents: String){
+    use std::path::Path;
     use std::error::Error;
     use std::io::prelude::*;
-    use std::fs::File;
-    use std::path::Path;
-
     //If output was'nt specified writing to stdout
     if path.len() == 0 {
         println!("{}", contents);
