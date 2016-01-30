@@ -35,3 +35,10 @@ fn md2bb_04_test(){
     let desired_output = include_str!("../tests/04_quotes.bb");
     assert_eq!(translate(input, "".to_string()), desired_output);
 }
+
+#[test]
+fn md2bb_0_test(){
+    let input = include_str!("../tests/05_inline_code.md").to_string();
+    let desired_output = include_str!("../tests/05_inline_code.bb");
+    assert_eq!(translate(input, "".to_string()), desired_output);
+}

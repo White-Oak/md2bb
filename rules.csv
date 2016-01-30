@@ -3,11 +3,11 @@ regexp,replacement
 \*\*(?P<bold>[^\*]+?)\*\*,[b]$bold[/b]
 \*(?P<italic>.+?)\*,[i]$italic[/i]
 (?m)^# (?P<head>.*?)$\r?\n,
-(?m)^#+ (?P<head>.*?)$,[b][center]$head[/center][/b]
+(?m)^#### (?P<spoiler_name>.*?)$(?P<spoiler_content>(?s).+?)^\r?\n,[spoiler $spoiler_name]$spoiler_content[/spoiler]\n
+(?m)^#+ (?P<head>.*?)$,[head]$head[/head]
 (?m)^```(?P<code_lang>.+?)$\s*(?P<ml_code>(?s).*?)^```$,[code $code_lang]$ml_code[/code]\n
 (?m)^```$\s*(?P<ml_code>(?s).*?)^```$,[code]$ml_code[/code]\n
-(?m)^#### (?P<spoiler_name>.*?)$(?P<spoiler_content>(?s).+?)^\r?\n,[spoiler $spoiler_name]$spoiler_content[/spoiler]\n
-`(?P<code>.*?)`,[bg=#bfbfbf]$code[/bg]
+`(?P<code>.*?)`,[bg=#f9f2f4][color=#c7254e] [mono]$code[/mono] [/color][/bg]
 (?m)^> ,__quotation__supersecret__
 (?m)(?P<quote>(?:^__quotation__supersecret__.*$\s*)+),[c]$quote[/c]\n
 __quotation__supersecret__,

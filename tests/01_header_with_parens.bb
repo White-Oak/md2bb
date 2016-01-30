@@ -1,1 +1,1 @@
-[b][center](A Tiny) Bytecode Refresher[/center][/b]
+[head](A Tiny) Bytecode Refresher[/head]
